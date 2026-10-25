@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Laravel Developer Screening Submission - The Night Marketer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 36px 44px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e4e8;
+        }
+
+        h1 {
+            font-size: 26px;
+            border-bottom: 2px solid #eaecef;
+            padding-bottom: 12px;
+            color: #1a202c;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 32px;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 8px;
+            color: #2d3748;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #4a5568;
+            margin-top: 20px;
+        }
+
+        p,
+        li {
+            font-size: 15px;
+        }
+
+        pre {
+            background-color: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 14px;
+            overflow-x: auto;
+            font-size: 13.5px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            line-height: 1.45;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: #f0f3f6;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 13.5px;
+        }
+
+        .info-box {
+            background-color: #e6f6ff;
+            border-left: 4px solid #0366d6;
+            padding: 12px 16px;
+            margin: 18px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .meta-table td {
+            padding: 8px 12px;
+            border: 1px solid #e1e4e8;
+            font-size: 14.5px;
+        }
+
+        .meta-table td.label {
+            background: #f8fafc;
+            font-weight: 600;
+            width: 35%;
+        }
+
+        ul,
+        ol {
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>PHP Laravel Developer — Screening Task Submission</h1>
+
+        <div class="info-box">
+            <strong>Assessment:</strong> Laravel Invoice API Diagnosis & Repair + Applied Conceptual Questions<br>
+            <strong>Target Version:</strong> Laravel 10.x / 11.x & PHP 8.2+<br>
+            <strong>Time Spent:</strong> ~75 minutes
+        </div>
+
+        <!-- CANDIDATE INFORMATION -->
+        <h2>1. Candidate Information</h2>
+        <table class="meta-table">
+            <tr>
+                <td class="label">Full Name & Applied Role</td>
+                <td><strong>Arvind Baghel</strong> — PHP Laravel Developer</td>
+            </tr>
+            <tr>
+                <td class="label">Current City & Locality</td>
+                <td>Rohini delhi</td>
+            </tr>
+            <tr>
+                <td class="label">Full-time Delhi Office (Wazirpur / Shalimar Bagh)</td>
+                <td><strong>Yes</strong>, I can work full-time from the Wazirpur / Shalimar Bagh office.</td>
+            </tr>
+            <tr>
+                <td class="label">Compensation & Notice Period</td>
+                <td>
+                    • Current/Last Salary:₹20,000 / month <br>
+                    • Expected Monthly Salary: ₹30,000 / month <br>
+                    • Notice Period: Immediate / 10 days<br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Professional Experience & Project</td>
+                <td>
+                    • Months of Experience: 1.10 years]<br>
+                    • Project: E-commerce Order & Invoicing System<br>
+                    • Personal Contribution: Designed REST APIs, request validation, database migrations with foreign
+                    keys/indexes, Eloquent relationships, and background queue workers for order confirmation
+                    emails.<br>
+                    • Database: MySQL 8.0
+                </td>
+            </tr>
+        </table>
+
+        <!-- META, ASSUMPTIONS & SETUP INSTRUCTIONS -->
+        <h2>Submission Meta, Assumptions & Setup Instructions</h2>
+        <div style="background: #fdfdfe; border: 1px solid #e2e8f0; padding: 16px; border-radius: 6px; margin: 15px 0;">
+            <ul>
+                <li><strong>Target Stack:</strong> Laravel 10.x / 11.x, PHP 8.2+, MySQL 8.0 (InnoDB)</li>
+                <li><strong>Time Spent:</strong> ~75 minutes (within the recommended 60–90 min window)</li>
+                <li><strong>Unfinished Parts:</strong> <strong>None</strong> (Part A controller, database constraints,
+                    all Part B applied questions, and tests are fully addressed).</li>
+                <li><strong>Core Assumptions:</strong>
+                    <ol>
+                        <li><strong>Authentication:</strong> The API route is protected by auth middleware
+                            (Sanctum/Session), so <code>$request->user()</code> safely returns the authenticated user.
+                        </li>
+                        <li><strong>Financial Precision:</strong> Currency is handled strictly in <code>paise</code>
+                            (integer) to avoid float rounding errors.</li>
+                        <li><strong>Idempotency:</strong> <code>client_reference</code> is an idempotency key per user.
+                            If resent with matching items/total, it safely returns HTTP 200 without duplicate insertion
+                            or email dispatch. If sent with conflicting data, it returns HTTP 409 Conflict.</li>
+                    </ol>
+                </li>
+                <li><strong>Setup Instructions (if evaluating in a Laravel instance):</strong>
+                    <ol>
+                        <li>Copy controller to <code>app/Http/Controllers/InvoiceController.php</code></li>
+                        <li>Run migrations: <code>php artisan migrate</code></li>
+                        <li>Run tests: <code>php artisan test --filter=InvoiceTest</code></li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <!-- PART A -->
+        <h2>Part A — Repaired Controller & Database Constraints</h2>
+
+        <h3>1. What was wrong with the original controller?</h3>
+        <ul>
+            <li><strong>Mass Assignment Vulnerability:</strong> <code>Invoice::create($request->all())</code> allows
+                clients to supply their own <code>user_id</code> (tampering ownership) or manipulated
+                <code>total</code>.</li>
+            <li><strong>Missing Validation:</strong> No checks on <code>client_reference</code> or <code>items</code>.
+                Clients could pass negative prices, zero quantities, empty item lists, or more than 20 items.</li>
+            <li><strong>No Database Transaction (Atomicity):</strong> If the loop fails on the 3rd item, an invoice
+                header already exists in the database without complete items (broken state).</li>
+            <li><strong>Race Conditions / Duplicate Requests:</strong> If a client clicks submit twice or network
+                retries, duplicate invoices are created with the same reference.</li>
+            <li><strong>Premature Email Dispatch:</strong> <code>SendInvoice::dispatch($invoice)</code> was called
+                without ensuring the database transaction committed. If DB fails or on retries, unnecessary or orphaned
+                emails get sent.</li>
+            <li><strong>Client-Supplied Totals:</strong> Totals were not calculated server-side based on quantity and
+                unit price.</li>
+        </ul>
+
+        <h3>2. Repaired Controller Code (Clean, Simple & Idiomatic Laravel)</h3>
+        <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Invoice;
+use App\Jobs\SendInvoice;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
+
+class InvoiceController extends Controller
+{
+    public function store(Request $request)
+    {
+        // 1. Validate incoming payload
+        $validated = $request->validate([
+            'client_reference'         => ['required', 'string', 'max:255'],
+            'items'                    => ['required', 'array', 'min:1', 'max:20'],
+            'items.*.description'      => ['required', 'string', 'max:255'],
+            'items.*.quantity'         => ['required', 'integer', 'min:1'],
+            'items.*.unit_price_paise' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $user = $request->user();
+
+        // 2. Check for duplicate request (Idempotency)
+        $existingInvoice = Invoice::where('user_id', $user->id)
+            ->where('client_reference', $validated['client_reference'])
+            ->with('items')
+            ->first();
+
+        if ($existingInvoice) {
+            // Calculate payload total to detect if reference was reused with different data
+            $incomingTotalPaise = 0;
+            foreach ($validated['items'] as $item) {
+                $incomingTotalPaise += ($item['quantity'] * $item['unit_price_paise']);
+            }
+
+            // If same client_reference is used with DIFFERENT items/total, reject conflict
+            if ($existingInvoice->total_paise !== $incomingTotalPaise || $existingInvoice->items->count() !== count($validated['items'])) {
+                return response()->json([
+                    'message' => 'Conflict: client_reference has already been used with different invoice details.'
+                ], 409);
+            }
+
+            // Identical retry: Return existing invoice safely without re-creating or re-emailing
+            return response()->json($existingInvoice, 200);
+        }
+
+        // 3. Atomically persist invoice and items inside a DB Transaction
+        try {
+            $invoice = DB::transaction(function () use ($validated, $user) {
+                // Calculate server-side total
+                $totalPaise = 0;
+                foreach ($validated['items'] as $item) {
+                    $totalPaise += ($item['quantity'] * $item['unit_price_paise']);
+                }
+
+                // Create invoice tied strictly to authenticated user
+                $newInvoice = Invoice::create([
+                    'user_id'          => $user->id,
+                    'client_reference' => $validated['client_reference'],
+                    'total_paise'      => $totalPaise,
+                    'status'           => 'issued',
+                ]);
+
+                // Create associated items
+                foreach ($validated['items'] as $item) {
+                    $newInvoice->items()->create([
+                        'description'      => $item['description'],
+                        'quantity'         => $item['quantity'],
+                        'unit_price_paise' => $item['unit_price_paise'],
+                        'subtotal_paise'   => $item['quantity'] * $item['unit_price_paise'],
+                    ]);
+                }
+
+                return $newInvoice;
+            });
+        } catch (QueryException $e) {
+            // Guard against concurrent race conditions hitting the unique DB index
+            if ($e->errorInfo[1] == 1062) { // MySQL unique constraint violation error code
+                $duplicate = Invoice::where('user_id', $user->id)
+                    ->where('client_reference', $validated['client_reference'])
+                    ->with('items')
+                    ->first();
+
+                if ($duplicate) {
+                    return response()->json($duplicate, 200);
+                }
+            }
+            throw $e;
+        }
+
+        // 4. Dispatch queued email ONLY after database transaction has committed
+        SendInvoice::dispatch($invoice)->afterCommit();
+
+        return response()->json($invoice->load('items'), 201);
+    }
+}
+</code></pre>
+
+        <h3>3. Database Migrations & Constraints</h3>
+        <pre><code>// database/migrations/xxxx_create_invoices_table.php
+Schema::create('invoices', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+    $table->string('client_reference');
+    $table->unsignedBigInteger('total_paise')->default(0);
+    $table->string('status')->default('issued');
+    $table->timestamps();
+
+    // 1. Idempotency Constraint: Prevents duplicate invoices for the same user + client_reference
+    $table->unique(['user_id', 'client_reference'], 'idx_invoices_user_client_reference_unique');
+
+    // 2. Query Performance: Composite index for user dashboard list queries
+    $table->index(['user_id', 'status', 'created_at'], 'idx_invoices_user_status_created');
+});
+
+// database/migrations/xxxx_create_invoice_items_table.php
+Schema::create('invoice_items', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
+    $table->string('description');
+    $table->unsignedInteger('quantity');
+    $table->unsignedBigInteger('unit_price_paise');
+    $table->unsignedBigInteger('subtotal_paise');
+    $table->timestamps();
+
+    $table->index('invoice_id');
+});
+</code></pre>
+
+        <h3>4. Explaining the Edge Cases:</h3>
+        <ul>
+            <li><strong>What happens if the same reference is reused with a different payload?</strong><br>
+                The controller detects that an invoice already exists for <code>(user_id, client_reference)</code>, but
+                the calculated total or item count does not match the stored invoice. It returns a
+                <code>409 Conflict</code> response. A <code>client_reference</code> is an idempotency key; reusing it
+                for completely different contents is an invalid client action.</li>
+            <li><strong>How do you avoid sending a second email on a retry?</strong><br>
+                On a retry, the controller fetches and returns the existing invoice immediately and exits. It never
+                reaches the <code>SendInvoice::dispatch()</code> line. Additionally, using <code>->afterCommit()</code>
+                guarantees the email is only queued if the transaction actually commits successfully on fresh creation.
+            </li>
+        </ul>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <!-- PART B -->
+        <h2>Part B — Answers to Applied Questions</h2>
+
+        <h3>1. FormRequest, Policies, and Mass Assignment</h3>
+        <ul>
+            <li><strong>What belongs in each:</strong>
+                <ul>
+                    <li><strong>FormRequest:</strong> Validates incoming HTTP request syntax and rules (types, required
+                        fields, max length, array nesting).</li>
+                    <li><strong>Policies:</strong> Handles resource-level business authorization (e.g. "Does the
+                        currently authenticated user own this invoice and have permission to view or delete it?").</li>
+                    <li><strong>Mass Assignment (<code>$fillable</code>):</strong> Guards database columns against
+                        untrusted bulk input (e.g. preventing a client from passing <code>user_id</code> or
+                        <code>is_admin</code>).</li>
+                </ul>
+            </li>
+            <li><strong>Why <code>$fillable</code> or Route-Model Binding alone do NOT prevent User A viewing User B's
+                    invoice:</strong>
+                <ul>
+                    <li><code>$fillable</code> only controls writing/updating attributes to the database. It plays zero
+                        role in read queries.</li>
+                    <li>Route-model binding (e.g. <code>public function show(Invoice $invoice)</code>) simply executes
+                        <code>Invoice::findOrFail($id)</code> based on the URL parameter. It does not check who is
+                        logged in. If User A changes the URL ID to User B's invoice ID, Laravel loads it without an
+                        error.</li>
+                </ul>
+            </li>
+            <li><strong>Safe query or authorization check:</strong>
+                <pre><code>// Approach 1: Using Policy Check (Recommended)
+public function show(Invoice $invoice)
+{
+    $this->authorize('view', $invoice); // In InvoicePolicy: return $user->id === $invoice->user_id;
+    return response()->json($invoice->load('items'));
+}
+
+// Approach 2: Scoped Query via Relationship
+public function show(Request $request, $id)
+{
+    $invoice = $request->user()->invoices()->with('items')->findOrFail($id);
+    return response()->json($invoice);
+}</code></pre>
+            </li>
+        </ul>
+
+        <h3>2. Eloquent and N+1 Queries</h3>
+        <p>In a loop over invoices where code accesses <code>$invoice->user->name</code> and calls
+            <code>$invoice->items()->count()</code>:</p>
+        <ul>
+            <li>Without eager loading, accessing <code>$invoice->user->name</code> runs 1 SQL query per invoice.</li>
+            <li>Calling <code>$invoice->items()->count()</code> executes a separate <code>SELECT count(*)</code> per
+                invoice. For 20 invoices, this triggers <code>1 + 20 + 20 = 41 queries</code>.</li>
+            <li>Calling <code>$invoice->items->count()</code> (collection count) would load all item records and models
+                into PHP memory, causing memory bloat.</li>
+        </ul>
+        <p><strong>Solution using <code>with()</code> and <code>withCount()</code>:</strong></p>
+        <pre><code>// Controller
+$invoices = Invoice::query()
+    ->with('user:id,name')  // Eager loads users in 1 single query
+    ->withCount('items')    // Computes count directly in SQL subquery (0 extra queries, 0 items loaded in RAM)
+    ->paginate(15);
+
+// Blade / API Resource
+foreach ($invoices as $invoice) {
+    echo $invoice->user->name;   // From pre-loaded relation
+    echo $invoice->items_count;  // Pre-calculated integer attribute directly from SQL
+}</code></pre>
+
+        <h3>3. SQL / Indexing</h3>
+        <p>For query: <code>WHERE user_id = ? AND status = ? ORDER BY created_at DESC LIMIT 15</code>:</p>
+        <ul>
+            <li><strong>Proposed Index:</strong> Composite index on <code>(user_id, status, created_at)</code>.</li>
+            <li><strong>Column Ordering Rule:</strong>
+                <ol>
+                    <li>Equality columns first: <code>user_id</code> and <code>status</code>.</li>
+                    <li>Sorting/range column last: <code>created_at</code>.</li>
+                </ol>
+                This allows MySQL to jump directly to the user's matching status records and read rows in already sorted
+                order.
+            </li>
+            <li><strong>Migration Snippet:</strong>
+                <pre><code>$table->index(['user_id', 'status', 'created_at'], 'idx_invoices_user_status_created');</code></pre>
+            </li>
+            <li><strong>What to verify with <code>EXPLAIN</code>:</strong>
+                <ul>
+                    <li><strong>type:</strong> Look for <code>ref</code> or <code>range</code> (never <code>ALL</code>,
+                        which means full table scan).</li>
+                    <li><strong>key:</strong> Confirm it actually picks <code>idx_invoices_user_status_created</code>.
+                    </li>
+                    <li><strong>rows:</strong> Should be close to our page size (e.g. ~15), not scanning thousands of
+                        unrelated rows.</li>
+                    <li><strong>Extra:</strong> Check that <code>Using filesort</code> and <code>Using temporary</code>
+                        are <strong>absent</strong>. If <code>Using filesort</code> appears, MySQL is sorting records in
+                        a temporary memory buffer because the index couldn't satisfy the order.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>4. Queues and Webhooks (Handling 3 Retries of Same Event)</h3>
+        <ul>
+            <li><strong>1. Signature Verification (Middleware):</strong> Verify HMAC SHA-256 signature using raw body
+                <code>$request->getContent()</code> and the shared webhook secret. Reject with 401 before hitting
+                controller logic.</li>
+            <li><strong>2. Database Uniqueness & Idempotency (Controller):</strong> Maintain a
+                <code>webhook_events</code> table with a unique constraint on <code>(provider, event_id)</code>. When a
+                webhook arrives:
+                <ul>
+                    <li>If the <code>event_id</code> already exists in DB, it is a duplicate retry. Return
+                        <code>200 OK</code> immediately so the provider stops retrying.</li>
+                    <li>If new, insert the record with status <code>processing</code>, dispatch the background job, and
+                        immediately return <code>200 OK</code> (within 200–500ms).</li>
+                </ul>
+            </li>
+            <li><strong>3. Transaction Boundaries & Retries (Queued Job):</strong> Put database updates (e.g., updating
+                invoice status to paid) inside <code>DB::transaction()</code>. Configure job retry backoff to handle
+                transient network issues:
+                <pre><code>public $tries = 3;
+public $backoff = [15, 60, 300]; // Wait 15s, then 1m, then 5m</code></pre>
+            </li>
+            <li><strong>Where each part belongs:</strong>
+                <ul>
+                    <li><strong>Middleware:</strong> Webhook signature validation & IP whitelisting.</li>
+                    <li><strong>Controller:</strong> Ingestion, duplicate check (idempotency), queuing job, returning
+                        fast <code>200 OK</code>.</li>
+                    <li><strong>Queued Job:</strong> Heavy business processing (updating invoice, ledger entries,
+                        sending customer receipt).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>5. Production Debugging (Old API Key in Queued Job after .env Update)</h3>
+        <ul>
+            <li><strong>Why this happens:</strong>
+                <ol>
+                    <li>Queue workers (<code>php artisan queue:work</code>) are persistent CLI daemon processes. They
+                        load environment variables into RAM when launched and do not automatically reload changed
+                        <code>.env</code> files.</li>
+                    <li>If <code>php artisan config:cache</code> was run, Laravel reads configuration from
+                        <code>bootstrap/cache/config.php</code> and completely ignores the <code>.env</code> file.</li>
+                </ol>
+            </li>
+            <li><strong>What to inspect or restart:</strong>
+                <pre><code># 1. Clear and re-cache config
+php artisan config:cache
+
+# 2. Gracefully signal running workers to restart after finishing current job
+php artisan queue:restart
+
+# 3. If managed by Supervisor on Linux:
+sudo supervisorctl restart all</code></pre>
+            </li>
+            <li><strong>How to investigate without exposing secrets in logs:</strong>
+                <pre><code>// Do NOT log the secret key. Inspect key length and masked characters instead:
+$key = config('services.payment.secret');
+Log::info('Payment Key Check', [
+    'is_set' => !empty($key),
+    'length' => strlen($key),
+    'starts_with' => substr($key, 0, 7), // e.g., 'sk_live'
+    'ends_with' => substr($key, -4),     // e.g., '3a9f'
+]);</code></pre>
+            </li>
+            <li><strong>Config Caching vs reading <code>env()</code> in code:</strong>
+                Once <code>php artisan config:cache</code> is executed, the <code>.env</code> file is not loaded at all
+                during requests. Any direct call to <code>env('API_KEY')</code> in application code returns
+                <code>null</code>.
+                <strong>Best practice:</strong> All <code>env()</code> calls must only exist inside files in
+                <code>config/*.php</code>. Application code must strictly use
+                <code>config('services.payment.secret')</code>.
+            </li>
+        </ul>
+
+        <h3>6. Testing and Ownership</h3>
+        <p><strong>Feature Test Code (<code>tests/Feature/InvoiceTest.php</code>):</strong></p>
+        <pre><code>&lt;?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use App\Models\User;
+use App\Models\Invoice;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class InvoiceTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** 1. Unauthorized invoice read returns 403 */
+    public function test_user_cannot_view_another_users_invoice()
+    {
+        $owner = User::factory()->create();
+        $stranger = User::factory()->create();
+        $invoice = Invoice::factory()->create(['user_id' => $owner->id]);
+
+        $response = $this->actingAs($stranger)->getJson("/api/invoices/{$invoice->id}");
+
+        $response->assertStatus(403);
+    }
+
+    /** 2. Invalid nested item data returns 422 */
+    public function test_validation_fails_on_zero_quantity_or_negative_price()
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->postJson('/api/invoices', [
+            'client_reference' => 'INV-TEST-001',
+            'items' => [
+                [
+                    'description' => 'Test Item',
+                    'quantity' => 0, // Invalid: must be >= 1
+                    'unit_price_paise' => -50, // Invalid: must be >= 0
+                ]
+            ]
+        ]);
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['items.0.quantity', 'items.0.unit_price_paise']);
+    }
+
+    /** 3. Atomicity: Failed line item insert rolls back entire invoice */
+    public function test_failed_item_creation_rolls_back_invoice()
+    {
+        $user = User::factory()->create();
+
+        // Pass an item missing required description to force DB exception during item creation
+        try {
+            $this->actingAs($user)->postJson('/api/invoices', [
+                'client_reference' => 'INV-ROLLBACK-TEST',
+                'items' => [
+                    ['description' => 'Item 1', 'quantity' => 1, 'unit_price_paise' => 100],
+                    ['description' => null, 'quantity' => 1, 'unit_price_paise' => 100],
+                ]
+            ]);
+        } catch (\Exception $e) {
+            // Expected
+        }
+
+        // Verify that 0 invoices were saved to the database
+        $this->assertDatabaseCount('invoices', 0);
+        $this->assertDatabaseCount('invoice_items', 0);
+    }
+
+    /** 4. Duplicate request with same client_reference does not duplicate invoice */
+    public function test_duplicate_request_does_not_create_second_invoice()
+    {
+        $user = User::factory()->create();
+        $payload = [
+            'client_reference' => 'INV-UNIQUE-101',
+            'items' => [
+                ['description' => 'Design Service', 'quantity' => 1, 'unit_price_paise' => 50000]
+            ]
+        ];
+
+        // First request creates the invoice
+        $response1 = $this->actingAs($user)->postJson('/api/invoices', $payload);
+        $response1->assertStatus(201);
+
+        // Immediate retry request with same client reference
+        $response2 = $this->actingAs($user)->postJson('/api/invoices', $payload);
+        $response2->assertStatus(200);
+
+        // Assert database only has 1 invoice
+        $this->assertDatabaseCount('invoices', 1);
+    }
+}
+</code></pre>
+
+        <h3>Real Production Bug I Encountered & Fixed:</h3>
+        <div style="background: #fdfdfe; border: 1px solid #e2e8f0; padding: 16px; border-radius: 6px;">
+            <p><strong>Bug:</strong> Race condition between database transaction commit and Redis queue worker execution
+                causing <code>ModelNotFoundException</code>.</p>
+            <p><strong>The Incident:</strong> On our checkout API, when an order was placed, we created the order inside
+                a <code>DB::transaction()</code> and immediately called
+                <code>SendOrderEmail::dispatch($order->id)</code> inside the transaction. During high traffic, our Redis
+                queue worker picked up the job within 10–15 milliseconds—before MySQL had finished committing the outer
+                transaction. As a result, the worker executed <code>Order::findOrFail($orderId)</code>, could not find
+                the record in the database yet, and crashed into the <code>failed_jobs</code> table. The customer
+                received no confirmation email despite money being deducted.</p>
+            <p><strong>How I fixed it:</strong>
+            <ol>
+                <li>Added <code>SendOrderEmail::dispatch($order->id)->afterCommit();</code> in the controller.</li>
+                <li>Set <code>public $afterCommit = true;</code> on the job class itself so that Laravel queue
+                    dispatcher automatically waits for the active database transaction to commit before publishing the
+                    message to Redis.</li>
+            </ol>
+            </p>
+            <p><strong>Verification:</strong> I reproduced the issue locally by adding a <code>sleep(2)</code> before
+                the transaction commit. Without <code>afterCommit()</code>, the worker failed immediately. With
+                <code>afterCommit()</code>, the job waited until MySQL finished the commit and processed cleanly with a
+                100% success rate.</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
